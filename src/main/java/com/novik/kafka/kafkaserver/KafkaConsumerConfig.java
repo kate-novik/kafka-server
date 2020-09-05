@@ -14,6 +14,7 @@ import org.springframework.kafka.core.ConsumerFactory;
 import org.springframework.kafka.core.DefaultKafkaConsumerFactory;
 import org.springframework.kafka.support.converter.BatchMessagingMessageConverter;
 import org.springframework.kafka.support.converter.StringJsonMessageConverter;
+import com.novik.kafka.kafkaserver.dto.AbstractDto;
 
 /**
  * Configuration class for Kafka Consumer
@@ -31,7 +32,7 @@ public class KafkaConsumerConfig {
 
   /**
    * Create Kafka listeners container bean for reading single message from topic.
-   * It is used a message converter with JSON output.
+   * It is used a message converter with JSON to String conversion.
    * @return KafkaListenerContainerFactory
    */
   @Bean
@@ -46,7 +47,7 @@ public class KafkaConsumerConfig {
 
   /**
    * Create Kafka listeners container bean for reading batch of messages from topic.
-   * It is used a message converter with array of JSON output.
+   * It is used a message converter with array of JSON conversion.
    * @return KafkaListenerContainerFactory
    */
   @Bean
@@ -66,7 +67,7 @@ public class KafkaConsumerConfig {
 
   /**
    * Create bean of consumer's configuration data.
-   * @return Map{literal<String, Object>}
+   * @return Map{@literal<String, Object>}
    */
   @Bean
   public Map<String, Object> consumerConfigs() {
@@ -85,7 +86,7 @@ public class KafkaConsumerConfig {
   }
 
   /**
-   * Create converter bean of topic's message in String format to JSON.
+   * Create converter bean of topic's message in JSON to String format.
    * @return StringJsonMessageConverter
    */
   @Bean

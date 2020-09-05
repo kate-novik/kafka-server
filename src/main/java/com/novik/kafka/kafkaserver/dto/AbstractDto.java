@@ -1,4 +1,4 @@
-package com.novik.kafka.kafkaserver;
+package com.novik.kafka.kafkaserver.dto;
 
 /**
  * Abstract Dto as message in Kafka topic.
